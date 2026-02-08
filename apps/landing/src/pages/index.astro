@@ -1,0 +1,190 @@
+---
+layout: ~/components/Layout.astro
+---
+
+<slot name="head">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Nexio - L'OS Agentic pour Madagascar</title>
+  <meta name="description" content="Nexio est une plateforme d'exploitation agentic pour Madagascar et les entreprises. Commande, ne cliquez pas." />
+  <link rel="stylesheet" href="/_astro/style.css" />
+</slot>
+
+<slot name="body">
+  <section class="hero">
+    <div class="container">
+      <div class="content">
+        <h1>Nexio</h1>
+        <h2 class="tagline">L'OS Agentic pour Madagascar et les Agences</h2>
+        <p class="description">
+          Plateforme d'exploitation agentic qui permet aux entreprises et aux agences de gérer leurs workflows grâce à l'IA. Commandez, ne cliquez pas.
+        </p>
+        <div class="cta-group">
+          <a href="#features" class="cta primary">Découvrir les Fonctionnalités</a>
+          <a href="#pricing" class="cta secondary">Tarifs</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="features">
+    <div class="container">
+      <div class="content">
+        <h2 class="section-title">Pour Qui ?</h2>
+        
+        <div class="feature-grid">
+          <div class="feature-card">
+            <h3 class="feature-title">🏢 Agences</h3>
+            <p class="feature-description">Orchestratez vos équipes, gérez vos projets, automatisez vos workflows</p>
+          </div>
+          
+          <div class="feature-card">
+            <h3 class="feature-title">🏢 Entreprises</h3>
+            <p class="feature-description">Déployez votre propre OS agentic, multi-tenant, sécurisé par défaut</p>
+          </div>
+          
+          <div class="feature-card">
+            <h3 class="feature-title">🌍 Freelancers</h3>
+            <p class="feature-description">Trouvez des missions, collaborez avec des agences, recevez vos paiements</p>
+          </div>
+          
+          <div class="feature-card">
+            <h3 class="feature-title">🎓 MNDPT</h3>
+            <p class="feature-description">Programme d'inclusion numérique du gouvernement malgache</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="features" id="features">
+    <div class="container">
+      <div class="content">
+        <h2 class="section-title">Fonctionnalités Clés</h2>
+        
+        <div class="feature-grid">
+          <div class="feature-card">
+            <h4>🤖 Agentic Kernel</h4>
+            <ul>
+              <li>Orchestration multi-agents</li>
+              <li>Commande intelligente (Cmd+K)</li>
+              <li>Mémoire persistante (MEMORY.md)</li>
+              <li>Heartbeat automatique</li>
+              <li>Collaboration peer-review</li>
+            </ul>
+          </div>
+          
+          <div class="feature-card">
+            <h4>⚡ HITL Command Center</h4>
+            <ul>
+              <li>File d'approbation</li>
+              <li>Logs d'audit complets</li>
+              <li>Validation humaine avant déploiement</li>
+            </ul>
+          </div>
+          
+          <div class="feature-card">
+            <h4>🔐 Zero-Trust Security</h4>
+            <ul>
+              <li>Isolation multi-tenant</li>
+              <li>Authentification BetterAuth</li>
+              <li>RBAC par rôle</li>
+              <li>Chiffrement TLS 1.3</li>
+            </ul>
+          </div>
+          
+          <div class="feature-card">
+            <h4>📊 ERP/CRM Intégré</h4>
+            <ul>
+              <li>Comptabilité & Finance</li>
+              <li>Gestion Clients & Deals</li>
+              <li>Inventaire & Entrepôts</li>
+              <li>Projets & RH</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  <section class="pricing" id="pricing">
+    <div class="container">
+      <div class="content">
+        <h2 class="section-title">Tarifs</h2>
+        
+        <div class="pricing-grid">
+          <div class="pricing-card">
+            <h3 class="plan-name">Starter</h3>
+            <p class="price">0 Ar/mois</p>
+            <ul class="features">
+              <li>1 Agence</li>
+              <li>50 Utilisateurs</li>
+              <li>10 GB Stockage</li>
+              <li>Support email</li>
+            </ul>
+            <a href="#contact" class="cta">Démarrer</a>
+          </div>
+          
+          <div class="pricing-card">
+            <h3 class="plan-name">Pro</h3>
+            <p class="price">49 Ar/mois</p>
+            <ul class="features">
+              <li>10 Agences</li>
+              <li>500 Utilisateurs</li>
+              <li>100 GB Stockage</li>
+              <li>Support prioritaire</li>
+            </ul>
+            <a href="#contact" class="cta">Démarrer</a>
+          </div>
+          
+          <div class="pricing-card featured">
+            <h3 class="plan-name">Entreprise</h3>
+            <span class="badge">Recommandé</span>
+            <p class="price">199 Ar/mois</p>
+            <ul class="features">
+              <li>Illimité Agences</li>
+              <li>Illimité Utilisateurs</li>
+              <li>1 TB Stockage</li>
+              <li>Support dédié 24/7</li>
+              <li>SLA 99.9%</li>
+            </ul>
+            <a href="#contact" class="cta">Contacter</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  <section class="contact" id="contact">
+    <div class="container">
+      <div class="content">
+        <h2 class="section-title">Contact</h2>
+        
+        <div class="contact-grid">
+          <div class="contact-card">
+            <h3 class="contact-title">📧 Ventes</h3>
+            <p class="contact-info">sales@nexio.work</p>
+            <p class="contact-desc">Pour les demandes commerciales</p>
+          </div>
+          
+          <div class="contact-card">
+            <h3 class="contact-title">💬 Support</h3>
+            <p class="contact-info">support@nexio.work</p>
+            <p class="contact-desc">Pour l'assistance technique</p>
+          </div>
+          
+          <div class="contact-card">
+            <h3 class="contact-title">🏛 Partenariats</h3>
+            <p class="contact-info">partenariats@nexio.work</p>
+            <p class="contact-desc">Pour devenir partenaire Nexio</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="content">
+        <p class="copyright">© 2026 Nexio - Plateforme Agentic pour Madagascar</p>
+        <p class="tagline">Commandez. Ne cliquez pas.</p>
+      </div>
+    </div>
+  </footer>
