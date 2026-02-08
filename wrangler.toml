@@ -32,18 +32,27 @@ id = "SET_AFTER_CREATION"
 [env.development]
 # Development: Use VPS sandbox, not Workers
 # This section is for local dev only
+vars = { ENVIRONMENT = "development" }
+
+[env.staging]
+# Staging: Pre-production deployment
+routes = [
+  { pattern = "api/*", zone_name = "nexio.work" }
+]
+vars = { ENVIRONMENT = "staging" }
 
 [env.production]
 # Production: Deploy to Cloudflare Workers
 routes = [
   { pattern = "api/*", zone_name = "nexio.work" }
 ]
+vars = { ENVIRONMENT = "production" }
 
 # Secrets (set via: wrangler secret put)
 # Example: wrangler secret put CLOUDFLARE_API_TOKEN
 
 # Compatibility flags
-vars = { ENVIRONMENT = "production" }
+# vars = { ENVIRONMENT = "production" }
 
 [env.staging]
 # Staging: Pre-production deployment
