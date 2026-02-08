@@ -56,6 +56,19 @@
 - Security model (multitenancy, auth, RBAC)
 ```
 
+### Phase 3.5: ERP/CRM Features Analysis
+**Agent:** `lex-manual` (orchestrator)
+**Deliverable:** `docs/erp-crm-features.md`
+
+```
+- ERP modules: Accounting, CRM, Inventory, Projects, HR (Frappe/Dolibarr/Odoo-inspired)
+- CRM features: Contacts, deals pipeline, tasks, document management
+- Agentic integration: ERP/CRM as data bus + agent skills
+- Backend analysis: HonoJS + Motia coupling
+- Deployment: Hybrid VPS + Cloudflare
+- Monorepo structure: packages/erp/ module breakdown
+```
+
 ### Phase 4: Planning
 **Agent:** `planning-agent`
 **Deliverables:**
@@ -69,13 +82,14 @@
 - Dependencies: What blocks what
 ```
 
-### Phase 5: Sprint 1 - Foundation
-**Agents:** `dev-agent-ui`, `dev-agent-api`, `dev-agent-db`
+### Phase 5: Sprint 1 - Foundation (ERP/CRM)
+**Agents:** `dev-agent-ui`, `dev-agent-api`, `dev-agent-db`, `dev-agent-erp`
 **Deliverables:**
 - Working monorepo structure
 - Design system (shadcn/ui)
 - Authentication flow (Lucia + multitenancy)
-- Database schema (Drizzle + D1 migrations)
+- Database schema (Drizzle + D1 + ERP tables)
+- ERP/CRM modules (accounting, CRM, inventory, projects, HR)
 - Cloudflare deployment config
 
 ### Phase 6: Sprint 2 - Core Features
