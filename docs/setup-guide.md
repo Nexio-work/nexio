@@ -1,6 +1,7 @@
 # Domain & Environment Setup Guide for Nexio
 
-**Primary Domain:** https://nexio.work
+**Primary Domain for App:** https://nexio.work
+**Documentation Domain:** https://devdocs.nexio.work
 
 ---
 
@@ -13,16 +14,15 @@
    curl "https://dash.cloudflare.com/login"
    ```
 
-2. **Add Custom Domain:**
-   - Navigate to: **Workers & Pages**
+2. **Add Custom Domain for App:**
+   - Navigate to **Workers & Pages**
    - Click: **Custom Domains**
-   - Add domain: `nexio.work`
+   - Add domain: `devdocs.nexio.work`
    - Configure DNS records (Cloudflare will provide these):
      ```
      Type: CNAME
      Name: @ (or your subdomain like www)
-     Target: nexio.pages.dev (for staging)
-     Target: nexio.work (for production)
+     Target: devdocs.pages.dev (default)
      Proxy: No
      TTL: Auto
      ```
@@ -44,9 +44,9 @@
 
 ### Staging
 - **Environment:** `staging`
-- **URL:** `https://nexio.work/staging` (if configured) or `https://nexio.pages.dev` (default)
+- **URL:** `https://devdocs.nexio.work`
 - **API:** `https://api-staging.nexio.work`
-- **Domain:** Configure `staging.nexio.work` as CNAME pointing to staging Pages
+- **Domain:** Configure `devdocs.nexio.work` as CNAME pointing to staging Pages
 - **Command:** `wrangler pages deploy ./apps/web/dist --env staging`
 
 ### Production
@@ -74,6 +74,14 @@ wrangler deploy apps/api --env staging
 
 # Deploy API to Production
 wrangler deploy apps/api --env production
+
+# Deploy Documentation to Staging
+npx docusaurus build
+npx docusaurus deploy --site devdocs.nexio.work
+
+# Deploy Documentation to Production
+npx docusaurus build
+npx docusaurus deploy --site devdocs.nexio.work
 ```
 
 ### Environment Variables
@@ -107,7 +115,7 @@ CLOUDFLARE_ACCOUNT_ID       # Cloudflare Account ID (auto-detected by token)
 
 ### How to Add Secrets
 
-1. Go to: https://github.com/Nexio-work/nexio/settings/secrets/actions
+1. Go to: https://github.com/Nexio-work/nexio/settings/secrets/actions/new
 2. Click: **New repository secret**
 3. Add each secret:
    - Name: `CLOUDFLARE_API_TOKEN`
@@ -134,17 +142,17 @@ wrangler d1 create nexio-db
 # 4. Create R2 bucket
 wrangler r2 bucket create nexio-assets
 
-# 5. Create KV namespace
-wrangler kv namespace create
+# 5. Verify domains
+# Go to Cloudflare Dashboard and configure nexio.work + devdocs.nexio.work
 
-# 6. Verify domains
-# Go to Cloudflare Dashboard and configure nexio.work
-
-# 7. Test deployment to staging
+# 6. Test deployment to staging
 wrangler pages deploy ./apps/web/dist --env staging
 
-# 8. Test deployment to production
+# 7. Test deployment to production
 wrangler pages deploy ./apps/web/dist --env production
+
+# 8. Test documentation deployment
+npx docusaurus deploy --site devdocs.nexio.work
 ```
 
 ### Daily Workflow (after initial setup)
@@ -160,13 +168,16 @@ pnpm test
 wrangler pages deploy ./apps/web/dist --env staging
 
 # Test staging environment
-# Open https://nexio.work/staging and verify
+# Open https://devdocs.nexio.work and verify
 
 # Deploy to production
 wrangler pages deploy ./apps/web/dist --env production
 
 # Test production environment
 # Open https://nexio.work and verify
+
+# Deploy documentation
+npx docusaurus deploy --site devdocs.nexio.work
 ```
 
 ---
@@ -183,13 +194,14 @@ wrangler deployments list
 wrangler pages deployment list
 
 # Check DNS propagation
+dig devdocs.nexio.work
 dig nexio.work
 ```
 
 ### Common Issues
 
 **Issue:** DNS not propagating
-- **Solution:** Wait 5-15 minutes, check with `dig nexio.work`
+- **Solution:** Wait 5-15 minutes, check with `dig devdocs.nexio.work`
 
 **Issue:** Build fails
 - **Solution:** Check logs with `wrangler tail`
@@ -201,7 +213,7 @@ dig nexio.work
 
 ## Next Steps
 
-1. **Configure nexio.work domain** in Cloudflare dashboard
+1. **Configure devdocs.nexio.work domain** in Cloudflare dashboard
 2. **Add CLOUDFLARE_ACCOUNT_ID secret** to GitHub (if needed)
 3. **Test deployment to staging** after Planning agent completes
 4. **Deploy to production** after Sprint 1 completion
@@ -210,4 +222,5 @@ dig nexio.work
 ---
 
 **Created:** 2026-02-08
+**Updated:** 2026-02-08 22:56
 **For:** Nexio - Agentic OS Project
