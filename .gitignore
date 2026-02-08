@@ -70,6 +70,11 @@ web_modules/
 .env.*
 !.env.example
 
+# Cloudflare credentials (SECURITY)
+.env.cloudflare
+.env.cloudflare.*
+!.env.cloudflare.example
+
 # parcel-bundler cache (https://parceljs.org/)
 .cache
 .parcel-cache

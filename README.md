@@ -37,7 +37,10 @@ nexio/
 - **Backend:** Hono (Cloudflare Workers), Drizzle ORM
 - **Database:** Cloudflare D1 (SQLite), Vector (RAG)
 - **Auth:** Lucia, OAuth2, multitenancy
-- **Deployment:** Cloudflare Pages, Workers, R2
+- **Deployment:**
+  - **Dev:** VPS sandbox (local development, faster iteration)
+  - **Prod:** Cloudflare Pages + Workers (auto-scaling, global edge)
+- **Storage:** Cloudflare R2
 - **Monitoring:** Sentry, analytics
 
 ## Orchestration

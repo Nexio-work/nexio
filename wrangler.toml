@@ -1,0 +1,51 @@
+# Wrangler configuration for Nexio
+# See: https://developers.cloudflare.com/workers/wrangler/configuration/
+
+# Project name
+name = "nexio"
+main = "apps/api/src/index.ts"
+compatibility_date = "2024-01-01"
+
+# Workers configuration
+[build]
+command = "pnpm --filter @nexio/api build"
+cwd = "apps/api"
+
+# D1 Database bindings (created via CLI: wrangler d1 create)
+[[d1_databases]]
+binding = "DB"
+database_name = "nexio-db"
+database_id = "SET_AFTER_CREATION"
+
+# R2 Storage bindings (created via CLI: wrangler r2 bucket create)
+[[r2_buckets]]
+binding = "BUCKET"
+bucket_name = "nexio-assets"
+bucket_id = "SET_AFTER_CREATION"
+
+# KV Cache bindings
+[[kv_namespaces]]
+binding = "CACHE"
+id = "SET_AFTER_CREATION"
+
+# Environment-specific configuration
+[env.development]
+# Development: Use VPS sandbox, not Workers
+# This section is for local dev only
+
+[env.production]
+# Production: Deploy to Cloudflare Workers
+routes = [
+  { pattern = "api/*", zone_name = "nexio.work" }
+]
+
+# Secrets (set via: wrangler secret put)
+# Example: wrangler secret put CLOUDFLARE_API_TOKEN
+
+# Compatibility flags
+vars = { ENVIRONMENT = "production" }
+
+[env.staging]
+# Staging: Pre-production deployment
+# Similar to production but with staging flags
+vars = { ENVIRONMENT = "staging" }
